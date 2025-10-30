@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link  rel="stylesheet"   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <title>Form</title>
+</head>
+<body>
+
+
+<div class="notifications"></div>
+
+
+   <div class="container"> 
+    <section class="contents">
+  <div class="content">
+    <div class="content1">
+      <div class="field reginput">
+        <label for="correspondent">Корреспондент <span style="color: red;">*</span></label>
+        <select id="correspondent" name="correspondent">
+            <option value="">-- Выберите корреспондента --</option>
+            <option value="asaka_bank">Асака Банк</option>
+            <option value="milliy_bank">Миллий Банк</option>
+            <option value="agrobank">Агробанк</option>
+            <option value="ipotekabank">Ипотека Банк</option>
+            <option value="xalq_bank">Халқ Банк</option>
+            <option value="savdogar_ltd">Savdogar LTD</option>
+            <option value="uzinfocom">UZINFOCOM</option>
+            <option value="davaktiv">Davaktiv</option>
+        </select>
+         <span class=""></span> 
+      </div>
+
+      <div class="field reginput2">
+        <label for="regNumber">РЕГ &#8470; <span style="color: red;">*</span></label>
+        <input type="text" id="regNumber" name="regNumber" />
+         <span class=""></span> 
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="regDate">Дата рег. <span style="color: red;">*</span></label>
+      <input type="date" class="date-hide" id="regDate" name="regDate" />
+       <span class=""></span> 
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="content1">
+      <div class="field reginput3">
+        <label for="documentType">Тип Документа</label>
+        <select id="documentType" name="documentType">
+             <option value="">-- Выберите тип документа --</option>
+            <option value="invoice">Счет-фактура</option>
+            <option value="contract">Договор</option>
+            <option value="order">Приказ</option>
+            <option value="letter">Письмо</option>
+            <option value="act">Акт</option>
+            <option value="report">Отчет</option>
+            <option value="application">Заявление</option>
+            <option value="notification">Уведомление</option>
+        </select>
+      </div>
+
+      <div class="field reginput3">
+        <label for="deliveryForm">Форма доставки <span style="color: red;">*</span></label>
+        <select id="deliveryForm" name="deliveryForm">
+            <option value="">-- Выберите форму доставки --</option>
+            <option value="email">Электронная почта</option>
+            <option value="paper">В бумажном виде</option>
+            <option value="courier">Курьерская доставка</option>
+            <option value="fax">Факс</option>
+            <option value="personal">Лично в руки</option>
+        </select>
+         <span class=""></span> 
+      </div>
+
+      <div class="field reginput2">
+        <label for="outgoingNumber">&#8470; исх. <span style="color: red;">*</span></label>
+        <input type="text" id="outgoingNumber" name="outgoingNumber" />
+         <span class=""></span> 
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="outgoingDate">Дата исх. <span style="color: red;">*</span></label>
+      <input type="date" class="date-hide" id="outgoingDate" name="outgoingDate" />
+       <span class=""></span> 
+    </div>
+  </div>
+    </section>
+
+
+<section class="contents">
+  <div class="content3">
+    <div class="field theme">
+      <label for="temaInput">Тема</label>
+      <input id="temaInput" name="tema" type="text" />
+    </div>
+
+    <div class="field theme">
+      <label for="opisanieTextarea">Описание <span style="color: red;">*</span></label>
+      <textarea id="opisanieTextarea" name="opisanie" cols="30" rows="8" class="textArea" required></textarea>
+       <span class=""></span> 
+    </div>
+
+    <div class="field width50 theme">
+      <label for="komuSelect">Кому <span style="color: red;">*</span></label>
+      <select id="komuSelect" name="komu" required>
+        <option value="">-- Выберите --</option>
+        <option value="bank_asaka">Асака Банк</option>
+        <option value="bank_milliy">Миллий Банк</option>
+        <option value="bank_agro">Агробанк</option>
+      </select>
+       <span class=""></span> 
+    </div>
+  </div>
+</section>
+
+    <section class="contents">
+    <div class="content4 width50">
+        <div>
+            <label for="publicAccess">Общедоступный</label>
+            <input type="checkbox" id="publicAccess" name="publicAccess">
+        </div> 
+        <div>
+            <label for="deadline">Срок</label>
+            <input type="date" class="date-hide" id="deadline" name="deadline"/>
+        </div>
+        <div>
+            <label>Приоритет</label>
+            <span style="color: orange;">Высокий</span>
+            <input type="radio" name="priority" id="priorityHigh" value="high">
+            <span style="color: rgb(17, 147, 191);">Средний</span>
+            <input type="radio" name="priority" id="priorityMedium" value="medium">
+            <span style="color: rgb(62, 181, 62);">Низкий</span>
+            <input type="radio" name="priority" id="priorityLow" value="low">
+        </div>
+    </div>
+    <div class="content5 reginput">
+        <div class="field reginput2">
+            <label for="executor">Исполнитель <span style="color: red;">*</span></label>
+            <input type="text" id="executor" name="executor">
+             <span class=""></span> 
+        </div>
+        <div class="field reginput2">
+            <label for="executorPhone">Тел. Исполнителя <span style="color: red;">*</span></label>
+            <input type="text" id="executorPhone" name="executorPhone" placeholder="+(___)__ ___ -__-__">
+             <span class=""></span> 
+        </div>
+        <div class="field reginput2">
+            <label for="internalPhone">Вн.тел</label>
+            <input type="text" id="internalPhone" name="internalPhone">
+        </div>
+    </div>
+    <div class="field theme mb">
+        <label for="outgoingDoc">Исходящий документ</label>
+        <input id="outgoingDoc" type="text" name="outgoingDoc"/>
+    </div>
+</section>
+
+    <section class="contents">
+    <div class="buttons">
+        <button id="saveBtn" type="submit"></button>
+        <button id="closeBtn">Закрыть</button>
+    </div>
+</section>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="script.js">  </script>
+</body>
+</html>

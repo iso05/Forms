@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>User Data</title>
+     <style>
+      table, th, td {
+      border: 1px solid #333;
+      border-collapse: collapse;
+      padding: 8px 12px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+    <button id="editBtn" disabled>Tahrirlash</button>
+    <button id="deleteBtn" disabled>O'chirish</button>
+    <button id="add">Qo'shish</button>
+    <table>
+    <thead>
+      <tr>
+        <th>Дата рег.</th>
+        <th>Рег &#8470;</th>
+        <th> &#8470; исх.</th>
+        <th>Дата исх.</th>
+        <th>Корреспондент</th>
+        <th>Тема</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+  
+    
+<script>
+
+const tableBody = document.getElementById("tableBody");
+const backBtn = document.getElementById("backBtn");
+const editbtn = document.getElementById("editBtn");
+const deletbtn = document.getElementById("deleteBtn");
+const addBtn = document.getElementById("add") 
+let selectedRowIndex = null; 
+
+window.addEventListener('load', () => {
+    const data = JSON.parse(localStorage.getItem("savedUsers")) || [];
+    if (data.length === 0) {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td colspan="6">Ma’lumotlar mavjud emas</td>`;
+        tableBody.appendChild(row);
+    } else {
+        data.forEach((item, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${item.dataregs}</td>
+                <td>${item.regsNum}</td>
+                <td>${item.outnumb}</td>
+                <td>${item.outData}</td>
+                <td>${item.correspondent}</td>
+                <td>${item.themee}</td>
+            `;
+            row.addEventListener("dblclick", function () {
+                Array.from(tableBody.rows).forEach(r => r.classList.remove("selected"));
+                this.classList.add("selected");
+                selectedRowIndex = index;
+                editbtn.disabled = false;
+                deletbtn.disabled = false;
+            });
+            tableBody.appendChild(row);
+        });
+    }
+});
+deletbtn.addEventListener("click", () => {
+  if (selectedRowIndex === null) return;
+  if (confirm("Bu ma'lumotni o‘chirmoqchimisiz?")) {
+    const data = JSON.parse(localStorage.getItem("savedUsers")) || [];
+    data.splice(selectedRowIndex, 1);
+    localStorage.setItem("savedUsers", JSON.stringify(data));
+    selectedRowIndex = null;
+    window.location.reload();
+  }
+});
+
+editbtn.addEventListener("click", ()=>{
+  if (selectedRowIndex !== null) {
+    localStorage.setItem("editedIndex", selectedRowIndex);
+    window.location.href = "http://127.0.0.1:5500/indx.html"
+  }
+})
+
+
+addBtn.addEventListener('click', () => {
+    window.location.href = "http://127.0.0.1:5500/indx.html";
+});
+
+
+
+</script>
+
+
+</body>
+</html>
